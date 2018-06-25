@@ -17,9 +17,9 @@ void compute(int *a, int *out, int n)
     if(n <= 0)
         return;
 
-    b = (int*) malloc(N * sizeof *b);
+    b = (int*) malloc(n * sizeof *b);
     if(!b) return;
-    c = (int*) malloc(N * sizeof *c);
+    c = (int*) malloc(n * sizeof *c);
     if(!c) {
         free(b);
         return;
@@ -49,9 +49,13 @@ void compute(int *a, int *out, int n)
 
 int main(void)
 {
-    int a[N];
-    int out[N];
+    int *a;
+    int *out;
     int i;
+
+    // Allocate memory in heap
+    a = (int*) malloc(N * sizeof *a);
+    out = (int*) malloc(N * sizeof *out);
 
     // Fill the input array
     for(i = 0; i < N; i++)
@@ -66,6 +70,9 @@ int main(void)
     // Print the output array
     for(i = 0; i < N; i++)
         printf("out[%4d] = %8d\n", i, out[i]);
+
+    free(a);
+    free(out);
 
     return 0;
 }
