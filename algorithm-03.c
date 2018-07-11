@@ -56,12 +56,23 @@ int count_max1s(unsigned int n)
         }
     }
 
+    if(numberof1smsb[1] > max1s)
+    {
+        max1s = numberof1smsb[1];
+    }
+
+    if(numberof1smsb[0] > max1s)
+    {
+        max1s = numberof1smsb[0];
+    }
+
     return max1s;
 }
 
 int main(void)
 {
     printf("Max 1s = %d\n", count_max1s(1775));
+    printf("Max 1s = %d\n", count_max1s(7));
 
     return 0;
 }
