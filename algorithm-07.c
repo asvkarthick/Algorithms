@@ -15,39 +15,27 @@ char *compress(char *string)
 {
     char *compressed_string = strdup(string);
     int string_length = strlen(string);
-    int character_count = 1;
+    int character_count = 0;
     int i, j = 0;
-    char previous_character = string[0];
+    char previous_character;
 
     memset(compressed_string, '\0', string_length);
 
-    for(i = 1; i < string_length; i++)
+    for(i = 0; i < string_length; i++)
     {
-        if(previous_character == string[i])
-        {
-            character_count++;
-        }
-        else
+        character_count++;
+
+        if(i + 1 > string_length || string[i] != string[i + 1])
         {
             if(j + 2 >= string_length)
             {
                 return string;
             }
-            compressed_string[j++] = previous_character;
+            compressed_string[j++] = string[i];
             compressed_string[j++] = '0' + character_count;
             previous_character = string[i];
-            character_count = 1;
+            character_count = 0;
         }
-    }
-
-    if(j + 2 >= string_length)
-    {
-        return string;
-    }
-    else
-    {
-        compressed_string[j++] = previous_character;
-        compressed_string[j++] = '0' + character_count;
     }
 
     return compressed_string;
