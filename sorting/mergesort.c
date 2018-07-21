@@ -50,6 +50,9 @@ void mergesort(int *array, int n)
     mergesort(left, n1);
     mergesort(right, n2);
     merge(array, left, n1, right, n2);
+
+    free(left);
+    free(right);
 }
 
 int main(void)
