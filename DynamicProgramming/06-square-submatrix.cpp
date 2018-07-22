@@ -41,13 +41,37 @@ int square_matrix(const std::vector<std::vector<int>>& v)
 
 int main(void)
 {
-    std::vector<std::vector<int>> v { { 1, 0, 0, 0 },
+    std::vector<std::vector<int>> v1{ { 1, 0, 0, 0 },
                                       { 1, 1, 1, 1 },
                                       { 1, 1, 1, 1 },
                                       { 1, 1, 1, 1 }
                                     };
+    std::vector<std::vector<int>> v2{ { 1, 1, 1, 1 },
+                                      { 1, 1, 1, 1 },
+                                      { 1, 1, 1, 1 },
+                                      { 1, 1, 1, 1 }
+                                    };
+    std::vector<std::vector<int>> v3{ { 1, 1, 0, 0 },
+                                      { 1, 1, 0, 0 },
+                                      { 1, 1, 1, 0 },
+                                      { 1, 1, 1, 0 }
+                                    };
+    std::vector<std::vector<int>> v4{ { 0, 0, 0, 0 },
+                                      { 0, 0, 0, 0 },
+                                      { 0, 0, 0, 0 },
+                                      { 0, 0, 0, 0 }
+                                    };
+    std::vector<std::vector<int>> v5{ { 0, 0, 0, 0 },
+                                      { 0, 1, 1, 0 },
+                                      { 0, 1, 1, 0 },
+                                      { 0, 0, 0, 0 }
+                                    };
 
-    std::cout << square_matrix(v) << std::endl;
+    std::cout << square_matrix(v1) << std::endl;
+    std::cout << square_matrix(v2) << std::endl;
+    std::cout << square_matrix(v3) << std::endl;
+    std::cout << square_matrix(v4) << std::endl;
+    std::cout << square_matrix(v5) << std::endl;
     
     return 0;
 }
