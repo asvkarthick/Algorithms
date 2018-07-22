@@ -51,13 +51,30 @@ public:
     int Pop()
     {
         int data;
+        Node *prev, *node = head;
 
-        if(head)
-            data = head->data;
-        else
+        if(!head)
             return -1;
 
-        deleteNode(&head);
+        // If there is only one node in the list
+        if(node->next == nullptr)
+        {
+            data = node->data;
+            delete node;
+            head = tail = nullptr;
+            return data;
+        }
+
+        while(node->next != nullptr)
+        {
+            prev = node;
+            node = node->next;
+        }
+        data = node->data;
+        tail = prev;
+        prev->next = nullptr;
+        delete node;
+
         return data;
     }
 
@@ -77,20 +94,6 @@ public:
     }
 
 private:
-
-    bool deleteNode(Node **head)
-    {
-        Node *node;
-
-        if(!head || !*head)
-            return false;
-
-        node = *head;
-        *head = node->next;
-        delete node;
-
-        return true;
-    }
 
     Node *head;
     Node *tail;
@@ -113,6 +116,15 @@ int main(void)
 
     data = s->Pop();
     std::cout << "Popped: " << data << std::endl;
+    data = s->Pop();
+    std::cout << "Popped: " << data << std::endl;
+    s->PrintList();
+    data = s->Pop();
+    std::cout << "Popped: " << data << std::endl;
+    s->PrintList();
+    data = s->Pop();
+    std::cout << "Popped: " << data << std::endl;
+    s->PrintList();
     data = s->Pop();
     std::cout << "Popped: " << data << std::endl;
     s->PrintList();
