@@ -16,6 +16,7 @@ int makechange(int *coins, int n, int change)
     if(change <= 0)
         return 0;
 
+    printf("Coins are: ");
     n--;
     while(change != accumulated)
     {
@@ -23,12 +24,14 @@ int makechange(int *coins, int n, int change)
         {
             accumulated += coins[n];
             number_of_coins++;
+            printf("%d ", coins[n]);
         }
         else
         {
             n--;
         }
     }
+    printf("\n");
 
     return number_of_coins;
 }
