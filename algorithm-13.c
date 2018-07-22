@@ -13,6 +13,9 @@ int makechange(int *coins, int n, int change)
 {
     int number_of_coins = 0, accumulated = 0;
 
+    if(change <= 0)
+        return 0;
+
     n--;
     while(change != accumulated)
     {
