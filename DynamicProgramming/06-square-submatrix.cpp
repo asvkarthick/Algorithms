@@ -1,6 +1,12 @@
 #include <iostream>
 #include <vector>
 
+/*
+    Given a 2-D boolean array, find the largest square subarray of
+    true values. The return value should be the side length of the
+    largest square subarray
+*/
+
 int square_matrix(const std::vector<std::vector<int>>& v)
 {
     int i, j, max = 0;
