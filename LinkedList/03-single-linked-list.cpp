@@ -70,6 +70,37 @@ public:
         }
     }
 
+    void AddAt(int index, int data)
+    {
+        int number_of_nodes = 0;
+        Node *node = head;
+
+        if(index == 0)
+        {
+            AddToFront(data);
+            return;
+        }
+
+        while(node != NULL)
+        {
+            ++number_of_nodes;
+            if(number_of_nodes == index)
+            {
+                Node *curr = GetNode(data);
+                curr->next = node->next;
+                node->next = curr;
+                return;
+            }
+            node = node->next;
+        }
+
+        if(number_of_nodes < index)
+        {
+            std::cout << "Number of nodes in the list is less than index" << std::endl;
+            return;
+        }
+    }
+
     void ReverseList()
     {
         Node *prev, *next, *node = head;
@@ -126,6 +157,10 @@ int main(void)
     s->AddToFront(40);
     s->PrintList();
     s->AddAfter(20, 15);
+    s->PrintList();
+    s->AddAt(1, 35);
+    s->PrintList();
+    s->AddAt(0, 50);
     s->PrintList();
 
     delete s;
