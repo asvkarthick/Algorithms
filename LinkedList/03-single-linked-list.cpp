@@ -114,7 +114,12 @@ public:
             node = next;
         }
         head = prev;
-    }       
+    }
+
+    void Delete(int data)
+    {
+        deleteNode(&head, data);
+    }
 
     ~SingleLinkedList()
     {
@@ -136,6 +141,26 @@ private:
         Node *node = *head;
         *head = GetNode(data);
         (*head)->next = node;
+    }
+
+    bool deleteNode(Node **head, int data)
+    {
+        if(!head || !*head)
+            return false;
+
+        while(*head)
+        {
+            if((*head)->data == data)
+            {
+                Node *node = *head;
+                *head = node->next;
+                delete node;
+                return true;
+            }
+            head = &((*head)->next);
+        }
+
+        return false;
     }
 
     Node *head;
@@ -161,6 +186,10 @@ int main(void)
     s->AddAt(1, 35);
     s->PrintList();
     s->AddAt(0, 50);
+    s->PrintList();
+    s->AddAfter(30, 25);
+    s->PrintList();
+    s->Delete(25);
     s->PrintList();
 
     delete s;
