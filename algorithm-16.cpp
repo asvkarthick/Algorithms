@@ -19,16 +19,9 @@ int main(void)
     std::string s { "Karthick" };
     int i;
 
-    for(i = 0; i < s.length(); i++)
-        std::cout << s.at(i) << std::endl;
-
-    std::cout << std::endl;
+    std::cout << "Original string: " << s << std::endl;
     ReverseString(s);
-    std::cout << std::endl;
-
-
-    for(i = 0; i < s.length(); i++)
-        std::cout << s.at(i) << std::endl;
+    std::cout << "Reversed string: " << s << std::endl;
 
     return 0;
 }
