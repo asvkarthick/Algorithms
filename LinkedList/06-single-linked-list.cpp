@@ -82,5 +82,13 @@ int main(void)
 
     delete s;
 
+    SingleLinkedList<double> *d;
+    d = new SingleLinkedList<double>();
+    d->AddNode(10.5);
+    d->AddNode(20.5);
+    d->AddNode(30.5);
+    d->PrintList();
+    delete d;
+
     return 0;
 }
