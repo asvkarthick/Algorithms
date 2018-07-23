@@ -6,7 +6,7 @@ class Node
 public:
     Node() = delete;
 
-    Node(int d) : next(nullptr), data(d) {}
+    Node(T d) : next(nullptr), data(d) {}
 
     Node<T> *next;
     T data;
