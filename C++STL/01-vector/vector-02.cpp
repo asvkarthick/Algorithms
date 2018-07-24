@@ -11,7 +11,7 @@ int main(void)
     for(i = 0; i < 10; i++)
         v.push_back(i);
 
-    for(i = 0; i < 10; i++)
+    for(i = 0; i < v.size(); i++)
         std::cout << v[i] << std::endl;
 
     return 0;
