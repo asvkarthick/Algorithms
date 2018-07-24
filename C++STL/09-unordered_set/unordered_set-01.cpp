@@ -19,5 +19,12 @@ int main(void)
     for(auto x : s)
         std::cout << x << std::endl;
 
+    std::cout << "Inserting an element again" << std::endl;
+    // Adding one more element to the set
+    s.insert(i);
+
+    for(auto x : s)
+        std::cout << x << std::endl;
+
     return 0;
 }
