@@ -1,6 +1,8 @@
 #include <iostream>
 #include <array>
 
+// Simple array program to add and print elements using range based for loop
+
 int main(void)
 {
     std::array<int,10> arr;
