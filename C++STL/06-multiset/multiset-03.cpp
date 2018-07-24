@@ -3,7 +3,7 @@
 
 // Simple set program to insert and print elements
 // This program demonstrates that the order of elements that stored in
-// the set is sorted and also removes duplicates
+// the set is sorted and also keeps duplicates
 
 int main(void)
 {
