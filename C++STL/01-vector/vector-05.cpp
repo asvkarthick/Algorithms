@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-// Simple vector program to push elements and print elements using const iterator
+// Simple vector program to push elements and print elements
 
 int main(void)
 {
