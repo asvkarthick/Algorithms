@@ -19,5 +19,12 @@ int main(void)
     for(auto x : s)
         std::cout << x << std::endl;
 
+    // Insert another element and check how the elements are stored
+    std::cout << "Inserting another element to see how the elements are stored after insertion" << std::endl;
+    s.insert(100);
+
+    for(auto x : s)
+        std::cout << x << std::endl;
+
     return 0;
 }
