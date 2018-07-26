@@ -39,23 +39,52 @@ public:
             prev->right = node;
     }
 
-    void traverse(Node *node)
+    void inorder_traverse(Node *node)
     {
         if(node == nullptr)
             return;
 
-        traverse(node->left);
+        inorder_traverse(node->left);
         std::cout << node->data << " " ;
-        traverse(node->right);
+        inorder_traverse(node->right);
+    }
+
+    void preorder_traverse(Node *node)
+    {
+        if(node == nullptr)
+            return;
+
+        std::cout << node->data << " ";
+        preorder_traverse(node->left);
+        preorder_traverse(node->right);
+    }
+
+    void postorder_traverse(Node *node)
+    {
+        if(node == nullptr)
+            return;
+
+        postorder_traverse(node->left);
+        postorder_traverse(node->right);
+        std::cout << node->data << " ";
     }
 
     void print()
     {
-        traverse(root);
+        std::cout << "Inorder: ";
+        inorder_traverse(root);
+        std::cout << std::endl;
+
+        std::cout << "Preorder: ";
+        preorder_traverse(root);
+        std::cout << std::endl;
+
+        std::cout << "Postorder: ";
+        postorder_traverse(root);
         std::cout << std::endl;
     }
 
-    void delete(int data)
+    void delete_node(int data)
     {
         Node *prev, *node = root;
 
