@@ -100,6 +100,23 @@ public:
         return search_data(root, x);
     }
 
+    Node *search_iterative(int x)
+    {
+        Node *node = root;
+
+        while(node != nullptr)
+        {
+            if(node->data == x)
+                return node;
+            else if(node->data < x)
+                node = node->right;
+            else
+                node = node->left;
+        };
+
+        return node;
+    }
+
     void delete_node(int data)
     {
         Node *prev, *node = root;
@@ -139,6 +156,15 @@ int main(void)
     for(int i = 9; i >= 0; i--)
     {
         Node *node = t.search(i);
+        if(node != nullptr)
+            std::cout << i << " found " << node->data << std::endl;
+        else
+            std::cout << i << " not found" << std::endl;
+    }
+
+    for(int i = 0; i < 10; i++)
+    {
+        Node *node = t.search_iterative(i);
         if(node != nullptr)
             std::cout << i << " found " << node->data << std::endl;
         else
