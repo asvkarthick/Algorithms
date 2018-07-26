@@ -139,6 +139,34 @@ public:
         }
     }
 
+    Node *min()
+    {
+        Node *node = root;
+        Node *prev = node;
+
+        while(node != nullptr)
+        {
+            prev = node;
+            node = node->left;
+        }
+
+        return prev;
+    }
+
+    Node *max()
+    {
+        Node *node = root;
+        Node *prev = node;
+
+        while(node != nullptr)
+        {
+            prev = node;
+            node = node->right;
+        }
+
+        return prev;
+    }
+
 private:
     Node *root;
 };
@@ -170,6 +198,14 @@ int main(void)
         else
             std::cout << i << " not found" << std::endl;
     }
+
+    Node *min_node = t.min();
+    if(min_node != nullptr)
+        std::cout << "Min element : " << min_node->data << std::endl;
+
+    Node *max_node = t.max();
+    if(max_node != nullptr)
+        std::cout << "Max element : " << max_node->data << std::endl;
 
     return 0;
 }
