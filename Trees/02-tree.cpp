@@ -84,6 +84,22 @@ public:
         std::cout << std::endl;
     }
 
+    Node *search_data(Node *node, int data)
+    {
+        if(node == nullptr || node->data == data)
+            return node;
+
+        if(data < node->data)
+            return search_data(node->left, data);
+        else
+            return search_data(node->right, data);
+    }
+
+    Node *search(int x)
+    {
+        return search_data(root, x);
+    }
+
     void delete_node(int data)
     {
         Node *prev, *node = root;
@@ -118,6 +134,15 @@ int main(void)
     {
         t.insert(i);
         t.print();
+    }
+
+    for(int i = 9; i >= 0; i--)
+    {
+        Node *node = t.search(i);
+        if(node != nullptr)
+            std::cout << i << " found " << node->data << std::endl;
+        else
+            std::cout << i << " not found" << std::endl;
     }
 
     return 0;
