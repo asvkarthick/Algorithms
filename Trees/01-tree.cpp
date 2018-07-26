@@ -14,7 +14,7 @@ class Tree
 public:
     Tree() : root(nullptr) {}
 
-    void AddNode(int data)
+    void insert(int data)
     {
         Node *node = new Node(data);
         Node *prev, *temp = root;
@@ -120,7 +120,7 @@ int main(void)
         std::cout << "Enter data: ";
         std::cin >> data;
 
-        t.AddNode(data);
+        t.insert(data);
         t.print();
     }
 
