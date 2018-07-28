@@ -1,5 +1,14 @@
 #include <iostream>
 
+/*
+    Algorithm:
+
+    Given a rod of length n inches and a table of prices p[i] for i = 1, 2, ... n
+    Determine the maximum revenue r[n] obtainable by cutting up the rod and selling
+    the pieces. Note that if the price p[n] is large enough, an optimal solution
+    may require no cutting at all
+*/
+
 int rod_cut(int *p, int n)
 {
     if(n == 0)
