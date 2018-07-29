@@ -21,6 +21,13 @@ Output: 1->4->3->2->5->NULL
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 class Solution {
 public:
     ListNode* reverseBetween(ListNode* head, int m, int n) {
@@ -54,4 +61,34 @@ public:
         
         return head;
     }
+
+    void printNodes(ListNode* head)
+    {
+        while(head != nullptr) {
+            std::cout << head->val << " -> ";
+            head = head->next;
+        }
+        std::cout << "NULL" << std::endl;
+    }
 };
+
+int main(void)
+{
+    Solution s;
+    ListNode *head;
+
+    head = new ListNode(10);
+    head->next = new ListNode(20);
+    head->next->next = new ListNode(30);
+    head->next->next->next = new ListNode(40);
+    head->next->next->next->next = new ListNode(50);
+
+    std::cout << "Original list:" << std::endl;
+    s.printNodes(head);
+
+    ListNode *reverse = s.reverseBetween(head, 2, 4);
+    std::cout << "Partial Reversed list:" << std::endl;
+    s.printNodes(reverse);
+
+    return 0;
+}
