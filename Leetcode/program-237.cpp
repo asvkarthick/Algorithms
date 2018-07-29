@@ -40,6 +40,13 @@ Note:
  * };
  */
 
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 class Solution {
 public:
     void deleteNode(ListNode* node) {
@@ -49,4 +56,34 @@ public:
         node->next = node->next->next;
         delete next;
     }
+
+    void printNodes(ListNode* head)
+    {
+        while(head != nullptr) {
+            std::cout << head->val << " -> ";
+            head = head->next;
+        }
+        std::cout << "NULL" << std::endl;
+    }
 };
+
+int main(void)
+{
+    Solution s;
+    ListNode *head;
+
+    head = new ListNode(10);
+    head->next = new ListNode(20);
+    head->next->next = new ListNode(30);
+    head->next->next->next = new ListNode(40);
+    head->next->next->next->next = new ListNode(50);
+
+    std::cout << "Original list:" << std::endl;
+    s.printNodes(head);
+
+    std::cout << "List after deleting " << head->next->next->next->val << std::endl;
+    s.deleteNode(head->next->next->next);
+    s.printNodes(head);
+
+    return 0;
+}
