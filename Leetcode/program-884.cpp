@@ -59,7 +59,7 @@ public:
         for(i = 0; i < length; ++i)
         {
             ch = S.at(i);
-            std::cout << ch << std::endl;
+            // std::cout << ch << std::endl;
             if(ch >= 'a' && ch <= 'z')
             {
                 // decoded.at(decoded.length()) = ch;
@@ -68,17 +68,22 @@ public:
             else
             {
                 n = ch - '0';
+                std::cout << "Decoded: " << decoded << std::endl;
+                std::cout << n << std::endl;
                 string temp;
                 while(n > 0)
                 {
                     temp = temp + decoded;
                     n--;
+                    std::cout << temp << std::endl;
                 }
                 decoded = temp;
+                std::cout << "Decoded: " << decoded << std::endl;
+                std::cout << "#########" << std::endl;
             }
         }
         
-        returned.push_back(decoded.at(K));
+        returned.push_back(decoded.at(K - 1));
         return returned;
     }
 };
@@ -89,5 +94,5 @@ int main(void)
 
     std::cout << s.decodeAtIndex(string {"leet2code3"}, 10) << std::endl;
     std::cout << s.decodeAtIndex(string {"ha22"}, 5) << std::endl;
-    std::cout << s.decodeAtIndex(string {"a2345678999999999999999"}, 1) << std::endl;
+    // std::cout << s.decodeAtIndex(string {"a2345678999999999999999"}, 1) << std::endl;
 }
