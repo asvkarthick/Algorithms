@@ -12,14 +12,14 @@ public:
         {
             // Overlap
             if(A < E)
-                x = C - E;
+                x = std::min(G - E, C - E);
             else
-                x = G - A;
+                x = std::min(G - A, C - A);
             
             if(B < F)
-                y = D - F;
+                y = std::min(D - F, H - F);
             else
-                y = H - B;
+                y = std::min(H - B, D - B);
             
             area3 = x * y;
             
@@ -34,3 +34,12 @@ public:
         return area;
     }
 };
+
+int main(void)
+{
+    Solution s;
+
+    std::cout << s.computeArea(-3, 0, 3, 4, 0, -1, 9, 2) << std::endl;
+
+    return 0;
+}
