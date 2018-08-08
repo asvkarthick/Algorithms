@@ -48,3 +48,35 @@ public:
         return false;
     }
 };
+
+/*
+ * Using Floyd Cycle Detection Algorithm
+ *
+class Solution {
+public:
+    int countSquareSum(int n)
+    {
+        int sum = 0;
+        while(n > 0)
+        {
+            int last_digit = n % 10;
+            n = n / 10;
+            sum = sum + (last_digit * last_digit);
+        }
+        return sum;
+    }
+
+    bool isHappy(int n) {
+        int slow = n, fast = n;
+        do
+        {
+            slow = countSquareSum(slow);
+            fast = countSquareSum(fast);
+            fast = countSquareSum(fast);
+        } while(slow != fast);
+
+        return slow == 1;
+    }
+};
+
+*/
