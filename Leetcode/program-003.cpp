@@ -1,129 +1,65 @@
 #include <iostream>
+#include <string>
+#include <list>
+#include <deque>
+#include <algorithm>
 
 /*
 
-You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+Given a string, find the length of the longest substring without repeating characters.
 
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Examples:
 
-Example
+Given "abcabcbb", the answer is "abc", which the length is 3.
 
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-Explanation: 342 + 465 = 807.
+Given "bbbbb", the answer is "b", with the length of 1.
+
+Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 */
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
+using namespace std;
 
 class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode *last, *list = nullptr, *ln;
-        int carry = 0, sum;
+    int lengthOfLongestSubstring(string s) {
+        int max_len = 0;
+        int len = 0;
+        int i, n = s.length();
+        std::deque<char> q;
 
-        while(l1 != nullptr && l2 != nullptr) {
-            sum = carry + l1->val + l2->val;
-            if(sum >= 10) {
-                carry = 1;
-                sum -= 10;
-            } else {
-                carry = 0;
-            }
-            ln = new ListNode(sum);
-            if(list == nullptr)
+        for(i = 0; i < n; i++)
+        {
+            if(std::find(q.begin(), q.end(), s.at(i)) != q.end())
             {
-                list = last = ln;
+                if(max_len < len)
+                    max_len = len;
+                while(q.front() != s.at(i))
+                {
+                    q.pop_front();
+                    --len;
+                }
+                q.pop_front();
+                --len;
             }
-            else
-            {
-                last->next = ln;
-                last = ln;
-            }
-            l1 = l1->next;
-            l2 = l2->next;
+            ++len;
+            q.push_back(s.at(i));
         }
 
-        while(l1 != nullptr)
-        {
-            sum = carry + l1->val;
-            if(sum >= 10)
-            {
-                carry = 1;
-                sum -= 10;
-            }
-            else
-            {
-                carry = 0;
-            }
-            ln = new ListNode(sum);
-            last->next = ln;
-            last = ln;
-            l1 = l1->next;
-        };
+        if(len > max_len)
+            max_len = len;
 
-        while(l2 != nullptr)
-        {
-            sum = carry + l2->val;
-            if(sum >= 10)
-            {
-                carry = 1;
-                sum -= 10;
-            }
-            else
-            {
-                carry = 0;
-            }
-            ln = new ListNode(sum);
-            last->next = ln;
-            last = ln;
-            l2 = l2->next;
-        };
-
-        if(carry)
-        {
-            ln = new ListNode(carry);
-            last->next = ln;
-            last = ln;
-        }
-
-        return list;
+        return max_len;
     }
 };
 
 int main(void)
 {
     Solution s;
-    ListNode l11(2), l12(4), l13(3);
-    ListNode l21(5), l22(6), l23(4);
-    ListNode *ln;
 
-    l11.next = &l12;
-    l12.next = &l13;
-    l21.next = &l22;
-    l22.next = &l23;
-
-    ln = s.addTwoNumbers(&l11, &l21);
-
-    while(ln != NULL)
-    {
-        std::cout << ln->val << " -> ";
-        ln = ln->next;
-    };
-    std::cout << "NULL" << std::endl;
+    std::cout << s.lengthOfLongestSubstring(std::string { "abcabcbb" } ) << std::endl;
+    std::cout << s.lengthOfLongestSubstring(std::string { "bbbbb" } ) << std::endl;
+    std::cout << s.lengthOfLongestSubstring(std::string { "pwwkew" } ) << std::endl;
 
     return 0;
 }
