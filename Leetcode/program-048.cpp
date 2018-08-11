@@ -61,7 +61,7 @@ public:
             return ;
         
         width = matrix[0].size();
-        for(i = 0; i < size; i++)
+        for(i = 0; i < size / 2; i++)
         {
             for(j = i; j < width - 1 - i; j++)
             {
