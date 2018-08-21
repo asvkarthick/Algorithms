@@ -19,7 +19,7 @@ int secondMax(std::vector<int>& v)
         max = tmp;
     }
 
-    for(int i = 0; i < v.size(); i++)
+    for(int i = 2; i < v.size(); i++)
     {
         if(v[i] > max)
         {
