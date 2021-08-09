@@ -40,7 +40,7 @@ public:
             std::cerr << "Queue is empty" << std::endl;
             return -1;
         }
-	int data = mArr[mHead];
+        int data = mArr[mHead];
         mHead = (mHead + 1) % mNumElements;
         return data;
     }
