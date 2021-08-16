@@ -1,3 +1,8 @@
+/* Simple string manipulation program
+ * Author : Karthick Kumaran
+ * E-mail : asvkarthick@gmail.com
+ */
+
 #include <iostream>
 #include <string>
 using namespace std;
