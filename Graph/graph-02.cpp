@@ -42,7 +42,7 @@ public:
     void printGraph()
     {
         std::cout << "Contents of Graph" << std::endl;
-        for (int i = 0; i < nVertices; i++) {
+        for (int i = 0; i <= nVertices; i++) {
             std::cout << i << " : ";
             for (auto& x : vertices[i]) std::cout << x->y << " -> ";
             std::cout << "NULL" << std::endl;
