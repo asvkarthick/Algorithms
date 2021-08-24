@@ -1,5 +1,5 @@
 /* Implementation of Graph
- * Breadth First Search (BFS)
+ * Depth First Search (DFS)
  * Check if path exists between two nodes
  * Author : Karthick Kumaran
  * E-mail : asvkarthick@gmail.com
