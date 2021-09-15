@@ -1,4 +1,4 @@
-/* Program: Tree inorder traversal
+/* Program: Tree preorder traversal
  * Weblink: https://leetcode.com/explore/learn/card/data-structure-tree/134/traverse-a-tree/928/
  * Author : Karthick Kumaran
  * E-mail : asvkarthick@gmail.com
