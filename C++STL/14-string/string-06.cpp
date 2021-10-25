@@ -29,54 +29,48 @@ dog : blue
 */
 
 bool is_match(std::string a, std::string b) {
-   std::unordered_map<std::string, std::string> hashMapA;
-   std::unordered_map<std::string, std::string> hashMapB;
-  
-   size_t cur_pos_a = 0, cur_pos_b = 0;
-   size_t prev_pos_a = 0, prev_pos_b = 0;
-   if (a.length() == 0 && b.length() == 0) return true;
-   if (a.length() == 0 || b.length() == 0) return false;
-  
-   while (true) {
-     std::string a_word;
-     std::string b_word;
-     cur_pos_a = a.find(" ", prev_pos_a);
-     if (cur_pos_a == std::string::npos) {
-       a_word = a.substr(prev_pos_a);
-       a_word = a_word.substr(0, a_word.length());
-     } else {
-       a_word = a.substr(prev_pos_a, cur_pos_a - prev_pos_a); // word
-     }
+    std::unordered_map<std::string, std::string> hashMapA;
+    std::unordered_map<std::string, std::string> hashMapB;
+    size_t cur_pos_a = 0, cur_pos_b = 0;
+    size_t prev_pos_a = 0, prev_pos_b = 0;
+    if (a.length() == 0 && b.length() == 0) return true;
+    if (a.length() == 0 || b.length() == 0) return false;
 
-     cur_pos_b = b.find(" ", prev_pos_b);
-     if (cur_pos_b == std::string::npos) {
-        b_word = b.substr(prev_pos_b);
-        b_word = b_word.substr(0, b_word.length());
-     } else {
-       b_word = b.substr(prev_pos_b, cur_pos_b - prev_pos_b);
-     }
+    while (true) {
+        std::string a_word;
+        std::string b_word;
+        cur_pos_a = a.find(" ", prev_pos_a);
+        if (cur_pos_a == std::string::npos) {
+            a_word = a.substr(prev_pos_a);
+        } else {
+            a_word = a.substr(prev_pos_a, cur_pos_a - prev_pos_a); // word
+        }
 
-     if (hashMapA.find(a_word) != hashMapA.end()) { // Present
-       if (hashMapA[a_word] != b_word) // Not match
-       {
-         return false;
-       }
-     } else { // Not present
-       hashMapA[a_word] = b_word;
-     }
+        cur_pos_b = b.find(" ", prev_pos_b);
+        if (cur_pos_b == std::string::npos) {
+            b_word = b.substr(prev_pos_b);
+        } else {
+            b_word = b.substr(prev_pos_b, cur_pos_b - prev_pos_b);
+        }
 
-     if (hashMapB.find(b_word) != hashMapB.end()) {
-         if (hashMapB[b_word] != a_word) return false;
-     } else {
-         hashMapB[b_word] = a_word;
-     }
-     prev_pos_a = cur_pos_a + 1; //  +1 for comma
-     prev_pos_b = cur_pos_b + 1; //  +1 for comma
-     if (cur_pos_a == std::string::npos || cur_pos_b == std::string::npos) break;
-   }
-  
-   // Check if a or b has any remaining words
-   return cur_pos_a == cur_pos_b;
+        if (hashMapA.find(a_word) != hashMapA.end()) { // Present
+            if (hashMapA[a_word] != b_word) return false;
+        } else { // Not present
+            hashMapA[a_word] = b_word;
+        }
+
+        if (hashMapB.find(b_word) != hashMapB.end()) {
+            if (hashMapB[b_word] != a_word) return false;
+        } else {
+            hashMapB[b_word] = a_word;
+        }
+        prev_pos_a = cur_pos_a + 1; //  +1 for space
+        prev_pos_b = cur_pos_b + 1; //  +1 for space
+        if (cur_pos_a == std::string::npos || cur_pos_b == std::string::npos) break;
+    }
+
+    // Check if a or b has any remaining words
+    return cur_pos_a == cur_pos_b;
 }
 
 /*** Tests of your solution ***/
