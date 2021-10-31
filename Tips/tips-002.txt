@@ -1,0 +1,17 @@
+Common Leetcode Problem Patterns
+* 2 Heaps
+* Arrays
+* Backtracking
+* Dynamic Programming
+* Fast & Slow Pointers
+* Graph Traversal
+* In-place traversal of Linked List
+* K-way merge
+* Merge Intervals
+* Modified Binary Search
+* Sliding Window
+* Top K elements
+* Topological Sorting
+* Tree BFS
+* Tree DFS
+* Two pointers
