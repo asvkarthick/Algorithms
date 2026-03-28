@@ -1,3 +1,8 @@
+# Is Palindrome Valid
+# A palindrome is a sequence of characters that reads the same forward and backward
+# Given a string, determine if it's a palindrome after removing all non-alphanumeric
+# characters. A character is alphanumeric if it's either a letter or a number
+
 def is_palindrome(s: str) -> bool:
     left, right = 0, len(s) - 1
     while left < right:
