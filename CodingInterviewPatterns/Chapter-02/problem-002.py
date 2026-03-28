@@ -8,8 +8,6 @@
 # these rules not whether the board is solvable
 
 def verify_sudoku_board(board: list[list[int]]) -> bool:
-    rows, cols = len(board), len(board[0])
-
     row_sets = [set() for _ in range(9)]
     col_sets = [set() for _ in range(9)]
     subgrid_sets = [[set() for _ in range(3)] for _ in range(3)]
