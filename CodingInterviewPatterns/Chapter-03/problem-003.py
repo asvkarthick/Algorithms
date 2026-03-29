@@ -44,7 +44,6 @@ class LinkedList:
         while leader.next:
             trailer = trailer.next
             leader = leader.next
-        print(trailer.data)
         trailer.next = trailer.next.next
 
     def display(self):
