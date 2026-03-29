@@ -7,12 +7,10 @@
 # Example: Input: nums=[1, 2, 4, 5, 7, 8, 9], target = 6, Output = 4
 
 def find_insertion_index(nums: list[int], target: int) -> int:
-    left, right = 0, len(nums) - 1
+    left, right = 0, len(nums)
     while left < right:
         mid = (left + right) // 2
-        if nums[mid] == target:
-            return mid
-        elif nums[mid] >= target:
+        if nums[mid] >= target:
             right = mid
         else:
             left = mid + 1
